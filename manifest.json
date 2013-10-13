@@ -1,0 +1,27 @@
+{
+  "AppDescription": {
+    "en": "Gets a Wikipedia article about currently playing artist/band."
+  },
+
+  "AppName": {
+    "en": "Get Artist Info"
+  },
+  "BundleIdentifier": "getartistinfo-app",
+  "BundleType": "Application",
+  "BundleVersion": "0.0.1",
+  "Dependencies": {
+    "api": "1.0.0",
+    "views": "1.10.0"
+  },
+  
+   "RequiredPermissions": [
+	"http://developer.echonest.com"
+  ],
+  
+  "SupportedDeviceClasses": [
+    "Desktop"
+  ],
+  "SupportedLanguages": [
+    "en"
+  ]
+}
