@@ -4,7 +4,7 @@ require([
   'use strict';
 	
 	var artistorband;
-	var foundWiki;
+	var foundWiki = false;
 	var split = new Array();
 	models.player.load('track').done(function(playing) {
 		models.Track.fromURI(playing.track).load('artists').done(function(artist) {
@@ -34,8 +34,9 @@ require([
 		$.getJSON("http://developer.echonest.com/api/v4/artist/search?"+
 					"api_key=BQMYVZPSG9FDJTT7N&name=" + artistorband + "&sort=hotttnesss-desc&"+
 					"bucket=biographies", function(result) {
+					console.log(result);
 					if(result.response.artists.length > 0) {
-						for(var i=0;i<11;i++) {
+						for(var i=0;i<result.response.artists[0].biographies.length;i++) {
 							if(result.response.artists[0].biographies[i].site == "wikipedia") {
 								split = result.response.artists[0].biographies[i].text.split("edit");
 								$('#article').append("<br /><h3>From " + result.response.artists[0].biographies[i].site + "</h3>");
